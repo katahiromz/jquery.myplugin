@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>myplugin.html</title>
+	<meta name="robots" content="noindex,nofollow" />
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<!-- jquery.myplugin.js -->
+	<script src="jquery.myplugin.js"></script>
+</head>
+<body>
+	<div id="myplugin1" class="myplugin"></div>
+	<div id="myplugin2" class="myplugin"></div>
+	<script>
+		$("#myplugin1").myplugin();
+		$("#myplugin2").myplugin({'text': "This is a test string."});
+		$("#myplugin1").myplugin('border', "solid 5px black");
+		$("#myplugin2").myplugin('border', "solid 2px red");
+	</script>
+</body></html>
