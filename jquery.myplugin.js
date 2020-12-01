@@ -2,68 +2,68 @@
     var self = this;
     $.fn.myplugin = function(args) {
         var self = this;
-        var defaults = {
-            // TODO:
-            width: "100%",
-            height: "auto",
-            border: "1px solid black",
-            text: "Hello, jQuery plugin",
-        };
-        self.settings = {};
         var methods = {
             init: function(options) {
-                self.settings = $.extend(true, {}, defaults, options);
+                var defaults = {
+                    // TODO:
+                    width: "100%",
+                    height: "auto",
+                    border: "1px solid black",
+                    text: "Hello, jQuery plugin",
+                };
+                let settings = $.extend(true, {}, defaults, options);
+                self.data('settings', settings);
                 return self.each(function(index, element) {
                     // TODO:
-                    $(element).text(self.settings['text']);
-                    $(element).css('width', self.settings['width']);
-                    $(element).css('height', self.settings['height']);
-                    $(element).css('border', self.settings['border']);
+                    $(element).text(settings['text']);
+                    $(element).css('width', settings['width']);
+                    $(element).css('height', settings['height']);
+                    $(element).css('border', settings['border']);
                 });
             },
             destroy: function() {
                 alert("destroy");
             },
-            text: function(value) {
-                if (value == undefined)
-                    return self.settings['text'];
+            text: function(newValue) {
+                if (newValue == undefined)
+                    return self.data('settings')['text'];
                 self.each(function(index, element) {
-                    $(element).text(value);
+                    $(element).text(newValue);
                 });
-                self.settings['text'] = value;
+                self.data('settings', 'text') = newValue;
                 return self;
             },
-            border: function(value) {
-                if (value == undefined)
-                    return self.settings['border'];
+            border: function(newValue) {
+                if (newValue == undefined)
+                    return self.data('settings')['border'];
                 self.each(function(index, element) {
-                    $(element).css('border', value);
+                    $(element).css('border', newValue);
                 });
-                self.settings['border'] = value;
+                self.data('settings')['border'] = newValue;
                 return self;
             },
-            width: function(value) {
-                if (value == undefined)
-                    return self.settings['width'];
+            width: function(newValue) {
+                if (newValue == undefined)
+                    return self.data('settings')['width'];
                 self.each(function(index, element) {
-                    $(element).css('width', value);
+                    $(element).css('width', newValue);
                 });
-                self.settings['width'] = value;
+                self.data('settings')['width'] = newValue;
                 return self;
             },
-            height: function(value) {
-                if (value == undefined)
-                    return self.settings['height'];
+            height: function(newValue) {
+                if (newValue == undefined)
+                    return self.data('settings')['height'];
                 self.each(function(index, element) {
-                    $(element).css('height', value);
+                    $(element).css('height', newValue);
                 });
-                self.settings['height'] = value;
+                self.data('settings')['height'] = newValue;
                 return self;
             },
-            option: function(key, value) {
-                if (value == undefined)
-                    return self.settings[key];
-                self.settings[key] = value;
+            option: function(key, newValue) {
+                if (newValue == undefined)
+                    return self.data('settings')[key];
+                self.data('settings')[key] = newValue;
                 return self;
             },
         };

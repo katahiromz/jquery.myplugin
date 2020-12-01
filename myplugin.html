@@ -18,9 +18,12 @@
 	<div id="myplugin1" class="myplugin"></div>
 	<div id="myplugin2" class="myplugin"></div>
 	<script>
-		$("#myplugin1").myplugin();
-		$("#myplugin2").myplugin({'text': "This is a test string."});
-		$("#myplugin1").myplugin('border', "solid 5px black");
-		$("#myplugin2").myplugin('border', "solid 2px red");
+		$(function() {
+			$("#myplugin1").myplugin();
+			$("#myplugin2").myplugin({'text': "This is a test string."});
+			$("#myplugin2").myplugin('border', "solid 2px red");
+			alert($("#myplugin1").myplugin('border'));
+			alert($("#myplugin2").myplugin('border'));
+		});
 	</script>
 </body></html>
